@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://dpmxe2m53eyi2"]
+
+[ext_resource type="Script" uid="uid://c2f5mwub8scu5" path="res://scripts/player.gd" id="1_1ap6k"]
+[ext_resource type="Texture2D" uid="uid://bhri0r8ipxpp7" path="res://assets/sprites/vampire_1.png" id="2_1ap6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_150yi"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(104, 0, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fojpf"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(104, 36, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0tjw"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(104, 72, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ejvq"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(104, 108, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i3ew"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(78, 0, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rwpn"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(104, 0, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxyjt"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(130, 0, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccljr"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(78, 36, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj356"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(104, 36, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2udf7"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(130, 36, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cfej"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(78, 72, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2n0a"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(104, 72, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwia8"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(130, 72, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlvyr"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(78, 108, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wctx0"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(104, 108, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt4j0"]
+atlas = ExtResource("2_1ap6k")
+region = Rect2(130, 108, 26, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4r5pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_150yi")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fojpf")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0tjw")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ejvq")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i3ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rwpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxyjt")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccljr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj356")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2udf7")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cfej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2n0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwia8")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlvyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wctx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt4j0")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
+radius = 7.0
+
+[node name="FemaleVampire" type="CharacterBody2D" unique_id=98505588]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_1ap6k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1434352878]
+texture_filter = 1
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_4r5pv")
+animation = &"idle_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2098513040]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_3vyb7")

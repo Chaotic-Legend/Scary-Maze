@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://5y2hx365r0pc"]
+
+[ext_resource type="Script" uid="uid://qxn402t05l4d" path="res://scripts/maze.gd" id="1_xthg4"]
+[ext_resource type="PackedScene" uid="uid://cdgkvkjbjqn1c" path="res://scenes/reaper.tscn" id="2_ht8bq"]
+[ext_resource type="AudioStream" uid="uid://cbnp8hfwcwhgk" path="res://assets/audio/background_music.wav" id="2_vqf1n"]
+[ext_resource type="AudioStream" uid="uid://oeo6a77jxxlq" path="res://assets/audio/halloween_whoosh.wav" id="3_067ks"]
+[ext_resource type="PackedScene" uid="uid://dari4jqnyfuwl" path="res://scenes/ghost.tscn" id="4_i67be"]
+[ext_resource type="AudioStream" uid="uid://dm4jhnw65m61f" path="res://assets/audio/demonic_laugh.wav" id="4_tmhqj"]
+[ext_resource type="Texture2D" uid="uid://b4iksv4xtjx28" path="res://assets/sprites/Background cementery 300x128/Background 300x128.png" id="4_vqf1n"]
+[ext_resource type="PackedScene" uid="uid://ixcjnpaklshe" path="res://scenes/witch.tscn" id="5_15xn6"]
+[ext_resource type="PackedScene" uid="uid://cjsfhbi6el2bd" path="res://scenes/jacko.tscn" id="6_6rghc"]
+[ext_resource type="PackedScene" uid="uid://bsdyrp27xa8oi" path="res://scenes/male_vampire.tscn" id="7_067ks"]
+[ext_resource type="PackedScene" uid="uid://dpmxe2m53eyi2" path="res://scenes/female_vampire.tscn" id="8_fvamp"]
+
+[node name="Maze" type="Node2D" unique_id=1788891827]
+script = ExtResource("1_xthg4")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1974321333]
+stream = ExtResource("2_vqf1n")
+volume_db = 4.0
+autoplay = true
+
+[node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=772450361]
+stream = ExtResource("3_067ks")
+volume_db = 8.0
+
+[node name="FailSound" type="AudioStreamPlayer" parent="." unique_id=1782825591]
+stream = ExtResource("4_tmhqj")
+volume_db = 8.0
+
+[node name="Characters" type="Node" parent="." unique_id=1297491817]
+
+[node name="Reaper" parent="Characters" unique_id=1290902934 instance=ExtResource("2_ht8bq")]
+texture_filter = 1
+
+[node name="Ghost" parent="Characters" unique_id=98505588 instance=ExtResource("4_i67be")]
+position = Vector2(20, 0)
+
+[node name="Witch" parent="Characters" unique_id=60418744 instance=ExtResource("5_15xn6")]
+position = Vector2(-20, 0)
+
+[node name="Jacko" parent="Characters" unique_id=1266414875 instance=ExtResource("6_6rghc")]
+position = Vector2(40, 0)
+
+[node name="MaleVampire" parent="Characters" unique_id=1182204837 instance=ExtResource("7_067ks")]
+position = Vector2(-40, 0)
+
+[node name="FemaleVampire" parent="Characters" unique_id=2136738442 instance=ExtResource("8_fvamp")]
+position = Vector2(60, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Characters" unique_id=1892270114]
+scale = Vector2(0.6, 0.6)
+zoom = Vector2(6, 6)
+process_callback = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=846770382]
+layer = -10
+
+[node name="BackgroundRect" type="TextureRect" parent="BackgroundLayer" unique_id=2031411002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_vqf1n")
+expand_mode = 1
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=653570115]
+process_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="UI" unique_id=1928410258]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PausedLabel" type="Label" parent="UI/CenterContainer" unique_id=1894476533]
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95686275, 0.39607844, 0.019607844, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 120
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="WinsLabel" type="Label" parent="UI" unique_id=1288843460]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 358.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0.16078432, 0.49411765, 0.8666667, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 50
+text = "MAZE WINS: 0"
+vertical_alignment = 1
+uppercase = true
+
+[node name="TimerLabel" type="Label" parent="UI" unique_id=1462078833]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.99215686, 0.83137256, 0.09019608, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 50
+text = "TIME LEFT: 60.0"
+horizontal_alignment = 1
+vertical_alignment = 2
+uppercase = true
+
+[node name="FailsLabel" type="Label" parent="UI" unique_id=208314494]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -359.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 90.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.8235294, 0.1882353, 0.27058825, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 50
+text = "MAZE FAILS: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
