@@ -8,7 +8,7 @@ This video tutorial is a beginner-friendly, step-by-step project that guides vie
 # Assets #
 [Halloween Graphics](https://finalbossblues.itch.io/halloween-graphics) by [Jason Perry](https://finalbossblues.com/) ([Pateron](http://patreon.com/finalbossblues))
 
-![Sprite Asset](assets/reaper/reaper_blade_1.png)
+![Sprite Asset](assets/sprites/reaper/reaper_blade_1.png)
 
 # Create a Godot task #
 <ins> **Step 1: Context setting** </ins>
